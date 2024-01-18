@@ -3,4 +3,4 @@
 - Flask
 - SQLAlchemy
 - flask-login
-- HTML/CSS/JS files
+- HTML/CSS/JS
