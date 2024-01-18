@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block head %}
+    <link rel="stylesheet" href="/static/css/style.css">
+{% endblock %}
+
+{% block content %}
+    <div class="category">
+        <div class="category-header">
+            <h2>Popular Movies</h2>
+        </div>
+        <div class="category-list">
+            {% for movie in movies %}
+            <a href="{{ url_for('show_movie_details', id = movie.get('id')) }}" class="movie">
+                <img src="https://image.tmdb.org/t/p/w200{{movie.get('poster_path')}}" alt="">
+                <h2>{{ movie.get('title')[:20] }}{% if movie.get('title')|length > 20 %}...{% endif %}</h2>
+                <p>{{ movie.get('release_date') }}</p>
+                <div class="movie-rate">
+                    <div>
+                        <img src="/static/imgs/imdbIcon.png" alt=""></img>
+                        <p>{{ movie.get('vote_average') }}</p>
+                    </div>
+                </div>    
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="page-selector">
+        {% for i in range(1, 6) %}
+        <div class="page-selector-button">
+            <a id="{{i}}" href="?page={{ i }}">{{ i }}</a>
+        </div>
+        {% endfor %}
+    </div>
+
+    <script>
+        $('.popular-button').toggleClass("active");
+
+        let url = new URL(window.location.href)
+        let page = parseInt(url.searchParams.get('page'))
+        let buttons=document.querySelector('.page-selector').querySelectorAll('a')
+
+        if (page){
+            let btn=buttons[page-1]
+            if (btn){
+                btn.classList.add('active')
+            }
+        }
+
+        else{
+            let btn=buttons[0]
+            if (btn){
+                btn.classList.add('active')
+            }
+        }
+    </script>
+{% endblock %}

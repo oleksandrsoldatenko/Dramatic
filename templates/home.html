@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% block head %}
+    <link rel="stylesheet" href="/static/css/style.css">
+
+    <style>
+        .header {
+            background: center no-repeat url("https://image.tmdb.org/t/p/original/{{ bannerMovie.get('backdrop_path') }}");
+            background-size: cover;
+        }
+    </style>
+    
+{% endblock %}
+
+{% block content %}
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="description">
+                <h1>{{ bannerMovie.get('title') }}</h1>
+                <p>{{ bannerMovie.get('overview') }}
+                    <div class="banner-rate" style="display: flex;">
+                        <img src="/static/imgs/imdbIcon.png" alt=""></img>
+                        <strong style="margin_left: 10px; font-size: 16px; font-family: 'Montserrat', cursive; padding-top: 3px;">{{ bannerMovie.get('vote_average') }}</strong>
+                    </div>
+                </p>
+            </div>
+            <div class="header-btns">
+                <a href="{{ url_for('show_movie_details', id = bannerMovie.get('id')) }}" class="watch">Watch</a>
+                <a href="" class="my-list">My list</a>
+            </div>
+        </div>
+        <div class="category">
+            <div class="category-header">
+                <h2>Upcoming Movies</h2>
+            </div>
+            <div class="category-list">
+                {% for upcomings in upcoming %}
+                <a href="{{ url_for('show_movie_details', id = upcomings.get('id')) }}" class="movie">
+                    <img src="https://image.tmdb.org/t/p/w200{{upcomings.get('poster_path')}}" alt="">
+                    <h2>{{ upcomings.get('title')[:20] }}{% if upcomings.get('title')|length > 20 %}...{% endif %}</h2>
+                    <p>{{ upcomings.get('release_date') }}</p>
+                    <div class="movie-rate">
+                        <div>
+                            <img src="/static/imgs/imdbIcon.png" alt=""></img>
+                            <p>{{ upcomings.get('vote_average') }}</p>
+                        </div>
+                    </div>    
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="category">
+            <div class="category-header">
+                <h2>Popular Movies</h2>
+            </div>
+            <div class="category-list">
+                {% for populars in popular %}
+                <a href="{{ url_for('show_movie_details', id = populars.get('id')) }}" class="movie">
+                    <img src="https://image.tmdb.org/t/p/w200{{populars.get('poster_path')}}" alt="">
+                    <h2>{{ populars.get('title')[:20] }}{% if populars.get('title')|length > 20 %}...{% endif %}</h2>
+                    <p>{{ populars.get('release_date') }}</p>
+                    <div class="movie-rate">
+                        <div>
+                            <img src="/static/imgs/imdbIcon.png" alt=""></img>
+                            <p>{{ populars.get('vote_average') }}</p>
+                        </div>
+                    </div>    
+                </a>
+                {% endfor %}
+            </div>
+        </div> 
+    </div>
+
+    <script>
+        $('.home-button').toggleClass("active");
+    </script>
+{% endblock %}

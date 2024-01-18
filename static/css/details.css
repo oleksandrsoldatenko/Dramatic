@@ -1,0 +1,148 @@
+body{
+    background: black;
+}
+
+.nav{
+    width: 100%;
+    color: white;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(to right, #0000, #6650A5);
+    /*justify-content: space-between;*/
+}
+
+.nav-title{
+    margin-left: 2%;
+    width: 35%;
+    font-weight: 30px;
+    font-family: 'Griffy', cursive;
+    color: yellow;
+    text-transform: uppercase;
+}
+
+.nav-btns{
+    width: 40%;
+    display: flex;
+    align-items: center;
+    list-style: none;
+    justify-content: space-evenly;
+}
+
+.nav-btns li a{
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #A1B1CB;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.nav-btns li a.active{
+    color: white;
+}
+
+.nav-profile{
+    width: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.nav-profile input{
+    border-radius: 18.5px;
+    background-color: #3B567D;
+    color: white;
+    height: 30px;
+    width: 250px;
+    border: none;
+    outline: none;
+    padding-left: 15px;
+    font-size: 12px;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+}
+
+.container{
+    width: 80%;
+    margin: 0 auto auto 0;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.header{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 15px;
+}
+
+.header img{
+    border-radius: 5px;
+}
+.about{
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    padding-left: 3%;
+    
+}
+
+.some-info{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 5px;
+}
+
+.like-button {
+    color: white;
+    padding: 0px 0px 2px 10px;
+}
+
+.category-list{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    color: white;
+}
+
+.movie{
+    padding: 15px;
+    width: 200px;
+    height: 400px;
+    margin: 30px 0;
+    text-decoration: none !important;
+    color: white;
+}
+
+.movie img{
+    margin: 0 auto;
+    border-radius: 5px 5px 5px 5px;
+}
+
+.movie h2{
+    margin: 0;
+    font-size: 22px;
+    width: 100%;
+    height: 46px;
+    padding-top: 5px;
+}
+
+.movie-rate{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.movie-rate div{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.liked{
+    color: red;
+}
+
+.like-button a{
+    color: white;
+}

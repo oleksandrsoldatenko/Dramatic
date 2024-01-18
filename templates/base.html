@@ -1,0 +1,40 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="/static/css/normalize.css">
+    <link rel="stylesheet" href="/static/css/base.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Griffy&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <script src = "/static/js/jquery.js"></script>
+    {% block head %}
+
+    {% endblock %}
+    <title>Dramatic</title>
+</head>
+
+<body>
+    <div class="nav">
+        <h2 class="nav-title"><a href="/">Dramatic<a></h2>
+        <ul class="nav-btns">
+            <li><a href="/" class = "home-button">Home</a></li>
+            <li><a href="/popular" class = "popular-button">Popular</a></li>
+            <li><a href="/upcoming" class = "upcoming-button">Upcoming</a></li>
+        </ul>
+        <div class="nav-profile">
+            <input type="text" placeholder="Search"/> 
+            <img src="/static/imgs/giftIcon.png" alt="" />
+            <img src="/static/imgs/bellIcon.png" alt="" />
+            <a href="/profile"><img src="/static/imgs/profileAvatar.png" alt="" /></a>
+        </div>
+    </div>
+
+
+
+    {%block content%}
+
+    {% endblock %}
+</body>
+</html>

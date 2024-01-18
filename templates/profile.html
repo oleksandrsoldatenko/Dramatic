@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block head %}
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/profile.css">
+{% endblock %}
+
+{% block content %}
+    <div class="profile">
+        <img src="/static/imgs/profileAvatar.png">
+        <h2>{{ current_user.username }}</h2>
+        <a href="/logout" class="logout-btn">logout</a>
+    </div>
+    <div class="category">
+        <div class="category-header">
+            <h2>Liked Movies</h2>
+        </div>
+        <div class="category-list">
+            {% for liked in liked_movies %}
+            <a href="/movie/{{ liked.id }}" class="movie">
+                <img src="https://image.tmdb.org/t/p/w200{{ liked.poster_path }}" alt="">
+                <h2>{{ liked.title[:20] }}{% if liked.title|length > 20 %}...{% endif %}</h2>
+                <p>{{ liked.date }}</p>
+                <div class="movie-rate">
+                    <div>
+                        <img src="/static/imgs/imdbIcon.png" alt=""></img>
+                        <p>{{ liked.rate }}</p>
+                    </div>
+                </div>    
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
