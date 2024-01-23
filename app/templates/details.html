@@ -21,7 +21,7 @@
         <h2>Similar</h2>
         <div class="category-list">
             {% for similar in similar_movies %}
-            <a href="{{ url_for('show_movie_details', id = similar.get('id')) }}" class="movie">
+            <a href="{{ url_for('main.show_movie_details', id = similar.get('id')) }}" class="movie">
                 <img src="https://image.tmdb.org/t/p/w200{{similar.get('poster_path')}}" alt="">
                 <h2>{{ similar.get('title')[:20] }}{% if similar.get('title')|length > 20 %}...{% endif %}</h2>
                 <p>{{ similar.get('release_date') }}</p>
