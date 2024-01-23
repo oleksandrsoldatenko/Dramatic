@@ -1,5 +1,6 @@
 from flask import render_template, redirect
-from database import db, User
+from app.extensions import db
+from database.user import User
 from . import auth
 
 @auth.route("/signup", methods=["GET", "POST"])
