@@ -1,6 +1,6 @@
 from flask import Flask
 from datetime import timedelta
-from extensions import db, login_manager
+from app.extensions import db, login_manager
 from config import Config
 
 def create_app(): 

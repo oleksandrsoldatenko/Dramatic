@@ -3,8 +3,7 @@ from flask import render_template, redirect, request
 from flask_login import login_required, current_user, logout_user
 from app.api import get_upcoming, get_popular, get_movie_details, get_similar_movies, get_movie_trailer
 from .forms import CommentForm
-from extensions import db
-from database import User, Liked, Comment
+from app.extensions import db
 
 @main.route("/")
 def index():
@@ -49,6 +48,8 @@ def logout():
 
 @main.route("/movie/<int:id>", methods=["GET", "POST"])
 def show_movie_details(id):
+    from database.comments import Comment
+    from database.liked import Liked
     movie=get_movie_details(id)
     similar_movies=get_similar_movies(id)
     videos=get_movie_trailer(id)
@@ -78,6 +79,7 @@ def show_movie_details(id):
 @main.route("/like/<int:id>", methods=["GET", "POST"])
 @login_required
 def like(id):
+    from database.liked import Liked
     from flask import jsonify
     movie = get_movie_details(id)
     sent_movie = Liked.query.filter_by(title=movie.get('title'), user_id = current_user.id).first()
