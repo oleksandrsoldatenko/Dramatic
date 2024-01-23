@@ -25,7 +25,7 @@
                 </p>
             </div>
             <div class="header-btns">
-                <a href="{{ url_for('show_movie_details', id = bannerMovie.get('id')) }}" class="watch">Watch</a>
+                <a href="{{ url_for('main.show_movie_details', id = bannerMovie.get('id')) }}" class="watch">Watch</a>
                 <a href="" class="my-list">My list</a>
             </div>
         </div>
@@ -35,7 +35,7 @@
             </div>
             <div class="category-list">
                 {% for upcomings in upcoming %}
-                <a href="{{ url_for('show_movie_details', id = upcomings.get('id')) }}" class="movie">
+                <a href="{{ url_for('main.show_movie_details', id = upcomings.get('id')) }}" class="movie">
                     <img src="https://image.tmdb.org/t/p/w200{{upcomings.get('poster_path')}}" alt="">
                     <h2>{{ upcomings.get('title')[:20] }}{% if upcomings.get('title')|length > 20 %}...{% endif %}</h2>
                     <p>{{ upcomings.get('release_date') }}</p>
@@ -55,7 +55,7 @@
             </div>
             <div class="category-list">
                 {% for populars in popular %}
-                <a href="{{ url_for('show_movie_details', id = populars.get('id')) }}" class="movie">
+                <a href="{{ url_for('main.show_movie_details', id = populars.get('id')) }}" class="movie">
                     <img src="https://image.tmdb.org/t/p/w200{{populars.get('poster_path')}}" alt="">
                     <h2>{{ populars.get('title')[:20] }}{% if populars.get('title')|length > 20 %}...{% endif %}</h2>
                     <p>{{ populars.get('release_date') }}</p>
