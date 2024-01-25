@@ -3,13 +3,13 @@ from wtforms import StringField, EmailField, PasswordField, BooleanField
 from wtforms.validators import DataRequired, Email, Length, Regexp, ValidationError
 
 def validate_username(form, username):
-    from database import User
+    from database.user import User
     user = User.query.filter_by(username=username.data).first()
     if user:
         raise ValidationError("username already in use")
     
 def validate_email(form, email):
-    from database import User
+    from database.user import User
     user = User.query.filter_by(email=email.data).first()
     if user:
         raise ValidationError("email already in use")
